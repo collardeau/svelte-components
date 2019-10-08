@@ -1,18 +1,17 @@
 <script>
   export let classes = {};
-  $: contentClass = classes.content || "";
-  $: headerClass = classes.header || "";
-  $: footerClass = classes.footer || "";
 </script>
 
 <div class="min-h-screen flex flex-col">
-  <div class={headerClass}>
-    <slot name="header" />
-  </div>
-  <div class="{contentClass} flex-1">
+  <slot name="header" />
+  <div class="flex-1 flex">
+    <div class="flex-1">
+      <slot name="menu" />
+    </div>
     <slot name="content" />
+    <div class="flex-1">
+      <slot name="aside" />
+    </div>
   </div>
-  <div class={footerClass}>
-    <slot name="footer" />
-  </div>
+  <slot name="footer" />
 </div>

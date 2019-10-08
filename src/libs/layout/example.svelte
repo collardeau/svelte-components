@@ -1,17 +1,34 @@
 <script>
   import Layout from "./index.svelte";
-
-  let classes = {
-    header: "h-12",
-    content: "bg-gray-200",
-    footer: "bg-gray-400"
-  };
 </script>
 
-<Layout {classes}>
-  <header slot="header">My Header</header>
-  <section slot="content">My Content</section>
-  <aside slot="left">Left Section</aside>
-  <aside slot="right">Right Section</aside>
-  <footer slot="footer">My Footer</footer>
+<style>
+  header {
+    height: 60px;
+    background-color: lightblue;
+  }
+  footer {
+    height: 60px;
+    background-color: lightpink;
+  }
+  main {
+    background-color: white;
+    width: 66%;
+  }
+  section {
+    background-color: burlywood;
+    min-height: 100%;
+  }
+  aside {
+    background-color: lightseagreen;
+    min-height: 100%;
+  }
+</style>
+
+<Layout>
+  <header slot="header">Header</header>
+  <main slot="content">Content</main>
+  <section slot="menu">Menu</section>
+  <aside slot="aside">Aside</aside>
+  <footer slot="footer">Footer</footer>
 </Layout>
