@@ -1,5 +1,7 @@
 <script>
   import Layout from "./index.svelte";
+
+  let breakpoint = "md";
 </script>
 
 <style>
@@ -13,22 +15,36 @@
   }
   main {
     background-color: white;
-    width: 66%;
   }
   section {
     background-color: burlywood;
-    min-height: 100%;
   }
   aside {
     background-color: lightseagreen;
+  }
+
+  :global(.svelte-layout-small section) {
+    height: 100px;
+  }
+  :global(.svelte-layout-small aside) {
+    height: 50px;
+  }
+
+  :global(.svelte-layout-large main) {
+    width: 66%;
+  }
+  :global(.svelte-layout-large section) {
+    min-height: 100%;
+  }
+  :global(.svelte-layout-large aside) {
     min-height: 100%;
   }
 </style>
 
-<Layout>
+<Layout {breakpoint}>
   <header slot="header">Header</header>
-  <main slot="content">Content</main>
   <section slot="menu">Menu</section>
+  <main slot="main">Content</main>
   <aside slot="aside">Aside</aside>
   <footer slot="footer">Footer</footer>
 </Layout>
