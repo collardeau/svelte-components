@@ -1,8 +1,7 @@
 <script>
-  export let name;
+  // import Headroom from "./libs/svelte-headroom/example.svelte";
+  // import FluidHeader from "./libs/fluid-header/example.svelte";
 </script>
 
-<section class="p-4">
-  <h1>Hello {name}!</h1>
-  <p class="text-green-500">Svelte + TailwindCSS :)</p>
-</section>
+<!-- <Headroom /> -->
+<!-- <FluidHeader /> -->
