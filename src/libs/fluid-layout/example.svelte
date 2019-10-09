@@ -12,7 +12,7 @@
   }
   section,
   aside {
-    background-color: burlywood;
+    background-color: lightslategray;
   }
 
   :global(.svelte-layout-small section) {
