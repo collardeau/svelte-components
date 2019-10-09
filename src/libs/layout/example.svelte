@@ -5,22 +5,14 @@
 </script>
 
 <style>
-  header {
+  header,
+  footer {
     height: 60px;
     background-color: lightblue;
   }
-  footer {
-    height: 60px;
-    background-color: lightpink;
-  }
-  main {
-    background-color: white;
-  }
-  section {
-    background-color: burlywood;
-  }
+  section,
   aside {
-    background-color: lightseagreen;
+    background-color: burlywood;
   }
 
   :global(.svelte-layout-small section) {
@@ -33,10 +25,7 @@
   :global(.svelte-layout-large main) {
     width: 66%;
   }
-  :global(.svelte-layout-large section) {
-    min-height: 100%;
-  }
-  :global(.svelte-layout-large aside) {
+  :global(.svelte-layout-large section, .svelte-layout-large aside) {
     min-height: 100%;
   }
 </style>
