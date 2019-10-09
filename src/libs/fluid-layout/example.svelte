@@ -1,10 +1,14 @@
 <script>
   import Layout from "./index.svelte";
 
-  let breakpoint = "md";
+  let breakpoint = "lg";
 </script>
 
 <style>
+  :global(body) {
+    margin: 0;
+  }
+
   header,
   footer {
     height: 60px;
@@ -15,18 +19,22 @@
     background-color: lightslategray;
   }
 
-  :global(.svelte-layout-small section) {
+  :global(.fluid-layout-small section) {
     height: 100px;
   }
-  :global(.svelte-layout-small aside) {
+  :global(.fluid-layout-small aside) {
     height: 50px;
   }
 
-  :global(.svelte-layout-large main) {
+  :global(.fluid-layout-large main) {
     width: 66%;
   }
-  :global(.svelte-layout-large section, .svelte-layout-large aside) {
+  :global(.fluid-layout-large section, .fluid-layout-large aside) {
     min-height: 100%;
+  }
+
+  :global(.flex-1) {
+    background-color: pink;
   }
 </style>
 
