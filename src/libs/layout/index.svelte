@@ -1,5 +1,8 @@
 <script>
+  import validate from "./validation";
   export let breakpoint = "sm";
+
+  $: validate({ breakpoint });
 </script>
 
 <style>
