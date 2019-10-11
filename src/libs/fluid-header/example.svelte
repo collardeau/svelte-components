@@ -1,5 +1,5 @@
 <script>
-  import Header from "./index.svelte";
+  import FluidHeader from "./index.svelte";
 
   let toggleDrawer;
   const handleClick = () => {
@@ -8,28 +8,30 @@
 </script>
 
 <style>
-  :global(.fluid-header-container) {
+  header {
     background-color: lightblue;
-    padding: 10px;
+    height: 50px;
+    padding: 0 10px;
   }
-  :global(.fluid-header-button:hover) {
-    font-weight: bold;
+  :global(.svelte-fluid-header--button) {
+    color: grey;
+  }
+  :global(.svelte-fluid-header--button:hover) {
+    color: black;
   }
 </style>
 
-<Header
-  as="header"
-  breakpoint="md"
-  duration={250}
-  bind:toggleDrawer
-  on:open={() => {}}
-  on:close={() => {}}>
-  <div slot="left">
-    <h1>My app</h1>
-  </div>
-  <div slot="right">My Horizontal Menu</div>
-  <div slot="drawer">My Vertical Menu</div>
-  <div slot="right-collapsed">
+<header>
+  <FluidHeader
+    bind:toggleDrawer
+    on:open={() => {
+      console.log('open');
+    }}>
+    <div slot="left">My app</div>
+    <div slot="right">My Horizontal Menu</div>
+    <div slot="drawer">My Vertical Menu</div>
+    <!-- <div slot="right-collapsed">
     <button on:click={handleClick}>Toggle</button>
-  </div>
-</Header>
+  </div> -->
+  </FluidHeader>
+</header>
