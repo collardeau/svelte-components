@@ -6,19 +6,19 @@
   export let offset = 0;
   export let tolerance = 0;
 
-  let headerClass = "pin";
-  let lastHeaderClass = "pin";
+  let headerClass = "";
+  let lastHeaderClass = "";
   let y = 0;
   let lastY = 0;
+  let prefix = "svelte-headroom--";
 
   const dispatch = createEventDispatcher();
 
   function deriveClass(y = 0, scrolled = 0) {
-    if (y < offset) return "pin";
-    if (!scrolled || Math.abs(scrolled) < tolerance) return headerClass;
-    const dir = scrolled < 0 ? "down" : "up";
-    if (dir === "up") return "pin";
-    if (dir === "down") return "unpin";
+    if (y < offset) return "";
+    if (Math.abs(scrolled) < tolerance) return headerClass;
+    if (scrolled > 0) return "";
+    if (scrolled < 0) return `${prefix}unpin`;
     return headerClass;
   }
 
@@ -37,7 +37,7 @@
     validate({ duration, offset, tolerance });
     headerClass = updateClass(y);
     if (headerClass !== lastHeaderClass) {
-      dispatch(headerClass);
+      dispatch(headerClass ? "unpin" : "pin");
     }
     lastHeaderClass = headerClass;
   }
@@ -49,11 +49,10 @@
     width: 100%;
     top: 0;
     transition: transform 300ms linear;
-  }
-  .pin {
     transform: translateY(0%);
   }
-  .unpin {
+
+  .svelte-headroom--unpin {
     transform: translateY(-100%);
   }
 </style>
